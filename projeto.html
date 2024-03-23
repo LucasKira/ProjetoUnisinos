@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ListaCarros</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .inputs {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        left: 4%;
+        top: 5%;
+    }
+
+    label {
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+
+    input[type="text"] {
+        width: 200px;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+
+    .matricula {
+        position: absolute;
+        width: 50%;
+        padding: 20px;
+        max-height: 120px; 
+        overflow-y: auto;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.582);
+        bottom: 5%;        
+    }
+
+    .dias-container {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .dias {
+        flex: 1;
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 0 10px;
+    }
+
+    .dias h1 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        padding: 10px 0;
+        border-bottom: 1px solid #ccc;
+        cursor: pointer;
+    }
+
+    li:last-child {
+        border-bottom: none;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .novaMatricula{
+        font-size: 13px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="inputs">
+        <label for="nome">NOME</label>
+        <input id="nome" type="text">
+
+        <label for="sobrenome">SOBRENOME</label>
+        <input id="sobrenome" type="text">
+
+        <label for="cpf">CPF</label>
+        <input id="cpf" type="text">
+    </div>
+
+    <div class="dias-container">
+        <div class="dias" id="segunda">
+            <h1>Segunda Feira</h1>
+            <ul id="segundaul">
+                <li onclick="clicarLi(event)" id="segundalimanha">
+                    PORTUGUÊS (Manhã) <br>
+                    Professor: Sidney
+                </li>
+                <li onclick="clicarLi(event)" id="segundalitarde">
+                    PORTUGUÊS (Tarde) <br>
+                    Professor: Sidney
+                </li>
+                <li onclick="clicarLi(event)" id="segundalinoite">
+                    PORTUGUÊS (Noite) <br>
+                    Professor: Eduardo
+                </li>
+            </ul>
+        </div>
+
+        <div class="dias" id="terca">
+            <h1>Terça Feira</h1>
+            <ul id="tercaul">
+                <li onclick="clicarLi(event)" id="tercalimanha">
+                    ARITIMÉTICA (Manhã) <br>
+                    Professor: Girafales   
+                </li>
+                <li onclick="clicarLi(event)" id="tercalitarde">
+                    ARITIMÉTICA (Tarde) <br>
+                    Professor: Madruga  
+                </li>
+                <li onclick="clicarLi(event)" id="tercalinoite">
+                    ARITIMÉTICA (Noite) <br>
+                    Professor: Girafales 
+                </li>
+            </ul>
+        </div>
+        <div class="dias" id="quarta">
+            <h1>Quarta Feira</h1>
+            <ul id="quartaul">
+                <li onclick="clicarLi(event)" id="quartalimanha">
+                    DIREITO (Manhã) <br>
+                    Professor: Florinda   
+                </li>
+                <li onclick="clicarLi(event)" id="quartalitarde">
+                    DIREITO (Tarde) <br>
+                    Professor: Chapolin  
+                </li>
+                <li onclick="clicarLi(event)" id="quartalinoite">
+                    DIREITO (Noite) <br>
+                    Professor: Chaves 
+                </li>
+            </ul>
+        </div>
+        <div class="dias" id="quinta">
+            <h1>Quinta Feira</h1>
+            <ul id="quintaul">
+                <li onclick="clicarLi(event)" id="quintalimanha">
+                    INGLÊS (Manhã) <br>
+                    Professor: Nico   
+                </li>
+                <li onclick="clicarLi(event)" id="quintalitarde">
+                    INGLÊS (Tarde) <br>
+                    Professor: Nicanor  
+                </li>
+                <li onclick="clicarLi(event)" id="quintalinoite">
+                    INGLÊS (Noite) <br>
+                    Professor: Rose 
+                </li>
+            </ul>
+        </div>
+        <div class="dias" id="sexta">
+            <h1>Sexta Feira</h1>
+            <ul id="sextaul">
+                <li onclick="clicarLi(event)" id="sextalimanha">
+                    INFORMÁTICA (Manhã) <br>
+                    Professor: Bebeto   
+                </li>
+                <li onclick="clicarLi(event)" id="sextalitarde">
+                    INFORMÁTICA (Tarde) <br>
+                    Professor: Zico  
+                </li>
+                <li onclick="clicarLi(event)" id="sextalinoite">
+                    INFORMÁTICA (Noite) <br>
+                    Professor: Rivaldo 
+                </li>
+            </ul>
+        </div>
+        
+
+        <!-- Outros dias da semana -->
+    </div>
+
+    <div class="matricula" id="registros">
+        <h2>Matrícula</h2>
+        <ul id="registroList"></ul>
+        <button onclick="confirmacao()">Confirmar</button>
+    </div>
+</div>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        
+function clicarLi(event){
+
+    const idLi = event.target.id;     
+    const textoli = event.target.textContent;
+    const novaMatricula = document.createElement('li');
+    const botaoRemover = document.createElement('button')
+    novaMatricula.className = 'novaMatricula'
+    botaoRemover.textContent = 'Remover'
+    novaMatricula.textContent = `${textoli}`;
+    const novoRegistro = document.getElementById('registroList')
+
+    novoRegistro.appendChild(novaMatricula);
+    novoRegistro.appendChild(botaoRemover);
+
+    botaoRemover.addEventListener('click', function(){
+        novoRegistro.removeChild(novaMatricula);
+        novoRegistro.removeChild(botaoRemover);
+        novoRegistro.removeChild(novoRegistro);
+    })
+
+
+}
+
+function confirmacao(){
+    const registro = document.getElementById('registroList');
+    const nome = document.getElementById('nome');
+    const sobrenome = document.getElementById('sobrenome');
+    const cpf = document.getElementById('CPF');
+
+    registro.children.length;
+
+
+    if(registro.children.length < 10){
+        alert("Voce precisa escolher 5 matérias")
+    }
+    else if(registro.children.length > 10){
+        
+        alert(`Limite de matérias atingido. Remova ${registro.children.length/2 -5} matérias `)
+    }
+    else if(nome || sobrenome || CPF == ''){
+        alert("Informe seus dados")
+    }
+    else{
+        alert("Matricula concluída")
+    }
+
+}
+
+
+
+        
+
+        ReactDOM.render(
+            <App />,
+            document.getElementById('root')
+        );
+
+        
+    </script>
+
+</body>
+</html>
