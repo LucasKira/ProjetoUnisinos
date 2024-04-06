@@ -137,3 +137,13 @@ button:hover {
     flex: 1;
     max-width: 100px;
 }
+
+.error{
+    color: red;
+    font-size: 12px;
+}
+
+.confirma{
+    color: green;
+    font-size: 12px;
+}
