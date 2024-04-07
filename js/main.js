@@ -1,7 +1,13 @@
-function clicarLi(event){
+var arr = [];
 
-    const idLi = event.target.id;
+function clicarLi(event){   
+    
     const textoli = event.target.textContent;
+
+    if(alreadySelected(textoli, arr)) return
+
+    arr.push(textoli);    
+
     const novaMatricula = document.createElement('li');
     const botaoRemover = document.createElement('button');
     const novoRegistro = document.getElementById('registroList');
@@ -25,22 +31,40 @@ function clicarLi(event){
     });
 }
 
+function alreadySelected(texto, arr) {
+    
+    if ( arr.includes(texto) ) {
+        alert("Matéria já selecionada")
+        return true;
+    }
+
+    return false;
+}
+
 function confirmacao(){
     const registro = document.getElementById('registroList');
     const nome = document.getElementById('nome');
     const sobrenome = document.getElementById('sobrenome');
-    const cpf = document.getElementById('CPF');
+    const cpf = document.getElementById('cpf');  
+    const form = document.querySelector('.formulario');  
 
     registro.children.length;
 
-    if(registro.children.length < 10){
+    const confirma_dados = document.getElementsByClassName('confirma')    
+
+    if(registro.children.length < 5){
         alert("Voce precisa escolher 5 matérias");
-    } else if(registro.children.length > 10) {
-        alert(`Limite de matérias atingido. Remova ${registro.children.length/2 -5} matérias `);
-    } else if(nome || sobrenome || CPF === '') {
-        alert("Informe seus dados");
+    } else if(registro.children.length > 5) {
+        alert(`Limite de matérias atingido. Remova ${registro.children.length -5} matérias `);
+    } else if(nome.value == '' || sobrenome.value == '' || cpf.value == '' ) {
+        alert("Faltam dados!");
+    } else if (confirma_dados.length == 0 ) {
+        alert("Confirme os dados!")
     } else {
-        alert("Matricula concluída")
+        for (let check of form.querySelectorAll(".confirma")) {
+            check.remove();
+        }        
+        alert("Matricula concluída")        
     }
 }
 
